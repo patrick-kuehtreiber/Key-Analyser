@@ -372,7 +372,6 @@ namespace Key_Analyser
 
             mainWindow.Set_A_R_values(A, R);
 
-            //TODO Logging
             String logline = "" + thresh_A + ";" + A + ";" + a2c + ";" + V1_2.Count +
                            ";" + a3c + ";" + V1_3.Count + ";" + a4c + ";" + V1_4.Count +
                            ";" + a5c + ";" + V1_5.Count;
