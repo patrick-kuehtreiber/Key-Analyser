@@ -117,7 +117,6 @@ namespace Key_Analyser
             try
             {
 
-
                 path = AppDomain.CurrentDomain.BaseDirectory;
                 path += "/ngraphs.csv";
                 //var directory = System.IO.Path.GetDirectoryName(path);
@@ -263,8 +262,8 @@ namespace Key_Analyser
         {
             int len = 0;
             int cur_dur = 0;
-            double A = 0d;
-            double R = 0d;
+            double A = -1d;
+            double R = -1d;
 
             foreach (Ngraph n in ngraphs)
             {
@@ -366,6 +365,7 @@ namespace Key_Analyser
                     r4c * V1_4.Count / V1_2.Count +
                     r5c * V1_5.Count / V1_2.Count;
             }
+       
             //Debug.WriteLine("len ngraph: " + ngraphs.Count);
             //Debug.WriteLine("R: " + R);
             //Debug.WriteLine("A: " + A);
@@ -381,8 +381,8 @@ namespace Key_Analyser
                            ";" + r5c + ";" + V1_5.Count;
             string auth_a = "false";
             string auth_r = "false";
-            if (A < thresh_A) auth_a = "true";
-            if (R < thresh_R) auth_r = "true";
+            if (A>=0 && A < thresh_A) auth_a = "true";
+            if (R >= 0 && R < thresh_R) auth_r = "true";
             logline += ";" + auth_a + ";" + auth_r;
 
             logs.Add(logline);
